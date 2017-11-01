@@ -1,0 +1,118 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"></meta>
+    <link rel="stylesheet" type="text/css" href="formate.css"></link>
+    <title> Configuration page for Modbus Multicast</title>
+  </head>
+  <body>
+    <div class="headline"> MODBUS Configuration </div>
+    <div class="description">
+      This page is for the configuration of Modbus features.
+      The configuration is stored in an EEPROM. Changes of the multicast setup will take effect
+      after the next software or hardware reset.<br />
+      Changes of Modbus Configuration Registers 
+    <!--#SHOWPORTCNF CMD=STARTPFC-->
+      and Modbus flag register blocking 
+    <!--#SHOWPORTCNF CMD=STOPPFC-->
+      will take effect immediately after submit.
+    </div>
+    <!--#SHOWPORTCNF CMD=STARTMCAST-->
+    <form action="/SETMCAST" method="POST">
+      <div align="center">
+        <table class="cfgtable">
+          <caption>Modbus UDP Multicast<br> Address Setup</caption>
+          <tr>
+            <th>Enable Multicast <input type="CHECKBOX" name="ETH_ENABLE_MCAST" value="ON" <!--#SHOWMCAST CMD=ETH_ENABLE_MCAST-->></th>
+          </tr>
+          <tr>
+            <td>MCAST Address 1: <input type="TEXT" name="MCAST1" id="MCAST1" size="30" maxlength="15" value="<!--#SHOWMCAST CMD=MCAST1-->"></td>
+          </tr>
+          <tr>
+            <td>MCAST Address 2: <input type="TEXT" name="MCAST2" id="MCAST2" size="30" maxlength="15" value="<!--#SHOWMCAST CMD=MCAST2-->"></td>
+          </tr>
+          <tr>
+            <td>MCAST Address 3: <input type="TEXT" name="MCAST3" id="MCAST3" size="30" maxlength="15" value="<!--#SHOWMCAST CMD=MCAST3-->"></td>
+          </tr>
+          <tr>
+            <td>MCAST Address 4: <input type="TEXT" name="MCAST4" id="MCAST4" size="30" maxlength="15" value="<!--#SHOWMCAST CMD=MCAST4-->"></td>
+          </tr>
+          <tr>
+            <td>MCAST Address 5: <input type="TEXT" name="MCAST5" id="MCAST5" size="30" maxlength="15" value="<!--#SHOWMCAST CMD=MCAST5-->"></td>
+          </tr>
+          <tr>
+            <th colspan="2" align="center">Valid address range:<br />225.0.0.0 to 238.255.255.255</th>
+          </tr>
+        </table>
+        <p> </p>
+        <p class="conform"> <input type="RESET" value="UNDO"> <input type="SUBMIT" value="SUBMIT" name="SUBMIT"> </p>
+      </div>
+    </form>
+    <p><br /></p>
+    <!--#SHOWPORTCNF CMD=STOPMCAST-->
+    <form action="/SETMBREGS" method="POST">
+      <div align="center">
+        <table class="cfgtable">
+          <caption>Modbus Configuration Registers</caption>
+          <tr>
+            <th>Range</th><th>Enabled</th>
+          </tr>
+          <tr>
+            <td>&nbsp;&nbsp;0x1028 - 0x1037: </td><td><div align="center"><input type="CHECKBOX" name="MBREG1" value="ON" <!--#GETMBREGS CMD=ETH_MBREG1-->></div></td>
+          </tr>
+          <tr>
+            <td>&nbsp;&nbsp;0x2040 - 0x2043: </td><td><div align="center"><input type="CHECKBOX" name="MBREG2" value="ON" <!--#GETMBREGS CMD=ETH_MBREG2-->></div></td>
+          </tr>
+        </table>
+        <p> </p>
+        <p class="conform"> <input type="RESET" value="UNDO"> <input type="SUBMIT" value="SUBMIT" name="SUBMIT"> </p>
+      </div>
+    </form>
+    <!--#SHOWPORTCNF CMD=STARTPFC-->
+    <p><br /></p>
+    <form action="/SETMBBLACKLIST" method="POST">
+      <div align="center">
+        <table class="cfgtable">
+          <caption>Blocked Modbus Flag Registers</caption>
+          <th colspan="4"> Range: 0x3000 - 0x5FFF </th>
+          <tr>
+            <th>&nbsp;&nbsp;&nbsp;&nbsp;</th><th>Range Start</th><th>Range End</th><th>Enabled</th>
+          </tr>
+          <tr>
+            <td><div align="center">1</div></td>
+            <td><div align="center"><input type="TEXT" name="MBRNG_STRT1" id="MBRNG_STRT1" size="6" maxlength="6" value="<!--#SHOWMBRANGE CMD=MBRNG_STRT1-->"></div></td>
+            <td><div align="center"><input type="TEXT" name="MBRNG_END1" id="MBRNG_END1" size="6" maxlength="6" value="<!--#SHOWMBRANGE CMD=MBRNG_END1-->"></div></td>
+            <td><div align="center"><input type="CHECKBOX" name="MBRNG_ENBL1" value="ON" <!--#SHOWMBRANGE CMD=MBRNG_ENBL1-->></div></td>
+          </tr>
+          <tr>
+            <td><div align="center">2</div></td>
+            <td><div align="center"><input type="TEXT" name="MBRNG_STRT2" id="MBRNG_STRT2" size="6" maxlength="6" value="<!--#SHOWMBRANGE CMD=MBRNG_STRT2-->"></div></td>
+            <td><div align="center"><input type="TEXT" name="MBRNG_END2" id="MBRNG_END2" size="6" maxlength="6" value="<!--#SHOWMBRANGE CMD=MBRNG_END2-->"></div></td>
+            <td><div align="center"><input type="CHECKBOX" name="MBRNG_ENBL2" value="ON" <!--#SHOWMBRANGE CMD=MBRNG_ENBL2-->></div></td>
+          </tr>
+          <tr>
+            <td><div align="center">3</div></td>
+            <td><div align="center"><input type="TEXT" name="MBRNG_STRT3" id="MBRNG_STRT3" size="6" maxlength="6" value="<!--#SHOWMBRANGE CMD=MBRNG_STRT3-->"></div></td>
+            <td><div align="center"><input type="TEXT" name="MBRNG_END3" id="MBRNG_END3" size="6" maxlength="6" value="<!--#SHOWMBRANGE CMD=MBRNG_END3-->"></div></td>
+            <td><div align="center"><input type="CHECKBOX" name="MBRNG_ENBL3" value="ON" <!--#SHOWMBRANGE CMD=MBRNG_ENBL3-->></div></td>
+          </tr>
+          <tr>
+            <td><div align="center">4</div></td>
+            <td><div align="center"><input type="TEXT" name="MBRNG_STRT4" id="MBRNG_STRT4" size="6" maxlength="6" value="<!--#SHOWMBRANGE CMD=MBRNG_STRT4-->"></div></td>
+            <td><div align="center"><input type="TEXT" name="MBRNG_END4" id="MBRNG_END4" size="6" maxlength="6" value="<!--#SHOWMBRANGE CMD=MBRNG_END4-->"></div></td>
+            <td><div align="center"><input type="CHECKBOX" name="MBRNG_ENBL4" value="ON" <!--#SHOWMBRANGE CMD=MBRNG_ENBL4-->></div></td>
+          </tr>
+          <tr>
+            <td><div align="center">5</div></td>
+            <td><div align="center"><input type="TEXT" name="MBRNG_STRT5" id="MBRNG_STRT5" size="6" maxlength="6" value="<!--#SHOWMBRANGE CMD=MBRNG_STRT5-->"></div></td>
+            <td><div align="center"><input type="TEXT" name="MBRNG_END5" id="MBRNG_END5" size="6" maxlength="6" value="<!--#SHOWMBRANGE CMD=MBRNG_END5-->"></div></td>
+            <td><div align="center"><input type="CHECKBOX" name="MBRNG_ENBL5" value="ON" <!--#SHOWMBRANGE CMD=MBRNG_ENBL5-->></div></td>
+          </tr>
+        </table>
+        <p> </p>
+        <p class="conform"> <input type="RESET" value="UNDO"> <input type="SUBMIT" value="SUBMIT" name="SUBMIT"> </p>
+      </div>
+    </form>
+    <!--#SHOWPORTCNF CMD=STOPPFC-->
+  </body>
+</html>

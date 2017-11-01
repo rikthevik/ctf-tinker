@@ -1,0 +1,10 @@
+# Nmap 7.01 scan initiated Sat Aug  6 12:42:38 2016 as: nmap -oN scan.57 10.50.1.57
+Nmap scan report for 10.50.1.57
+Host is up (0.030s latency).
+Not shown: 998 filtered ports
+PORT     STATE  SERVICE
+80/tcp   open   http
+3000/tcp closed ppp
+MAC Address: 6C:B0:CE:0D:0E:26 (Netgear)
+
+# Nmap done at Sat Aug  6 12:42:44 2016 -- 1 IP address (1 host up) scanned in 6.95 seconds

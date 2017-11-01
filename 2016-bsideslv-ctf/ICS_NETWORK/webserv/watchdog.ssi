@@ -1,0 +1,61 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"></meta>
+    <link rel="stylesheet" type="text/css" href="formate.css"></link>
+    <title> Watchdog configuration page </title>
+  </head>
+  <body>
+    <div class="headline">Watchdogs</div>
+    <div class="description">
+      This page is for the configuration of the watchdogs.
+      The configuration is stored in an EEPROM. Changes of the
+      Connection Time will take effect immediately.
+      Changes of the Modbus Watchdog will take effect
+      after the next software or hardware reset.
+      For more information see the manual.
+    </div>
+    <div align="center">
+      <form action="/SETWDPARAMS" method="POST">
+        <table class="cfgtable">
+          <caption> Connection Watchdog </caption>
+          <tr>
+            <td> Connection Timeout Value (100ms) : </td>
+            <td> <input type="text" name="SETCONT" size="25" maxlength="15" value="<!--#GETWDPARAMS CMD=GETCONT-->"> </td>
+          </tr>
+        </table>
+        <p class="conform"> <input type="RESET" value="UNDO"> <input type="SUBMIT" value="SUBMIT" name="SUBMIT"> </p>
+      </form>
+      <form action="/SETWDPARAMS" method="POST">
+        <table class="cfgtable">
+          <caption> Modbus Watchdog </caption>
+          <tr>
+            <td> State Modbus Watchdog: </td>
+            <td> <!--#SHOWCPLINFO CMD=MODCON_TIME--> </td>
+          </tr>
+          <tr>
+            <td> Watchdog Type : </td>
+            <td> Standard     <input type="radio" name="WDTYPE" value="STAND"  <!--#GETWDPARAMS CMD=STAND--> > </td>
+          </tr>
+          <tr>
+            <td> </td>
+            <td> Alternative  <input type="radio" name="WDTYPE" value="ALTERN" <!--#GETWDPARAMS CMD=ALTER--> > </td>
+          </tr>
+          <tr>
+            <td> Watchdog Timeout Value (100ms): </td>
+            <td> <input type="text" name="SETWDTIME" size="25" maxlength="15" value="<!--#GETWDPARAMS CMD=GETWDTIME-->"> </td>
+          </tr>
+          <tr>
+            <td> Watchdog Trigger Mask (F1 to F16): </td>
+            <td> <input type="text" name="SETMASK1" size="25" maxlength="15" value="<!--#GETWDPARAMS CMD=TRIGMASK1-->"> </td>
+          </tr>
+          <tr>
+            <td> Watchdog Trigger Mask (F17 to F32): </td>
+            <td> <input type="text" name="SETMASK2" size="25" maxlength="15" value="<!--#GETWDPARAMS CMD=TRIGMASK2-->"> </td>
+          </tr>
+        </table>
+        <p class="conform"> <input type="RESET" value="UNDO"> <input type="SUBMIT" value="SUBMIT" name="SUBMIT"> </p>
+      </form>
+    </div>
+  </body>
+</html>

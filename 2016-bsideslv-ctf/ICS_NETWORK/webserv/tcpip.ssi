@@ -1,0 +1,71 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"></meta>
+    <link rel="stylesheet" type="text/css" href="formate.css"></link>
+    <title> TCPIP configuration page </title>
+  </head>
+  <body>
+    <div class="headline">TCP/IP configuration</div>
+    <div class="description">
+      This page is for the configuration of the basic TCP/IP network parameters.
+      The parameters are stored in an EEPROM and changes will take effect after
+      the next software or hardware reset.
+      <div style="color: red;"> Note that these settings are used only if the
+        DIP switch is set to zero and you have selected 'use IP from EEPROM' at
+        'Port' configuration page! Otherwise the settings from DIP switch will
+        be used!
+      </div>
+    </div>
+    <div align="center">
+      <form action="/SETBOOTCNF" method="POST">
+        <table class="cfgtable">
+          <caption>EEPROM Configuration Data</caption>
+          <tr>
+            <td> IP-Address </td>
+            <td> <input type="TEXT" name="IP-ADDRESS" id="IP-ADDRESS" maxlength="16"value="<!--#SHOWCPLINFO CMD=IP_ADDR-->"></td>
+          </tr>
+          <tr>
+            <td> Subnet Mask </td>
+            <td> <input type="TEXT" name="SUBNET-MASK" id="SUBNET-MASK"  maxlength="16"value="<!--#SHOWCPLINFO CMD=SUB_ADDR-->"></td>
+          </tr>
+          <tr>
+            <td> Gateway </td>
+            <td><input type="TEXT" name="GATEWAY" id="GATEWAY" maxlength="16"value="<!--#SHOWCPLINFO CMD=GATE_ADDR-->"></td>
+          </tr>
+          <tr>
+            <td> Host Name </td>
+            <td> <input type="TEXT" name="HOSTNAME" id="HOSTNAME" maxlength="32"value="<!--#SHOWCPLINFO CMD=HOSTNAME-->"> </td>
+          </tr>
+          <tr>
+            <td> Domain Name </td>
+            <td> <input type="TEXT" name="DOMAIN" id="DOMAIN" maxlength="32"value="<!--#SHOWCPLINFO CMD=DOMAIN-->"> </td>
+          </tr>
+          <tr>
+            <td> DNS Server 1 </td>
+            <td> <input type="TEXT" name="DNS-SERV1" id="DNS-SERV1" maxlength="16"value="<!--#SHOWCPLINFO CMD=DNSS1-->"> </td>
+          </tr>
+          <tr>
+            <td> DNS Server 2 </td>
+            <td> <input type="TEXT" name="DNS-SERV2" id="DNS-SERV2" maxlength="16"value="<!--#SHOWCPLINFO CMD=DNSS2-->"> </td>
+          </tr>
+          <tr>
+            <td> Switch IP-Address </td>
+            <td> <input type="TEXT" name="SW-IP-ADDRESS" id="SW-IP-ADDRESS" maxlength="12"value="<!--#SHOWCPLINFO CMD=SW_IP_ADDR-->"></td>
+          </tr>
+        <!--#SHOWPORTCNF CMD=STARTSNTP-->
+          <tr>
+            <td> (S)NTP Server </td>
+            <td> <input type="TEXT" name="TIME-SERV" id="TIME-SERV" maxlength="16"value="<!--#SHOWCPLINFO CMD=TIMES-->"> </td>
+          </tr>
+          <tr>
+            <td> SNTP Update Time <font size="2">(sec, max. 65535)</font> </td>
+            <td> <input type="TEXT" name="UPDATETIME" id="UPDATETIME" maxlength="16"value="<!--#SHOWCPLINFO CMD=TIMEUP-->"> </td>
+          </tr>
+        <!--#SHOWPORTCNF CMD=STOPSNTP-->
+        </table>
+        <p class="conform"> <input type="RESET" value="UNDO"> <input type="SUBMIT" value="SUBMIT" name="SUBMIT"> </p>
+      </form>
+    </div>
+  </body>
+</html>

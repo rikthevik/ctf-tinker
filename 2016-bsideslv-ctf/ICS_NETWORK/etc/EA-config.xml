@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml-stylesheet type="text/xsl" href="../webserv/cplcfg/EA-config.xsl" ?>
+<WAGO>
+ <Module ARTIKELNR="750-4xx" MODULETYPE="DI" CHANNELCOUNT="8" MAP="FB2">
+  <Kanal CHANNELNAME="M001Ch1" CHANNELTYPE="DI">
+<!--#READPI ADR=IX0.0&FORMAT=%d-->
+  </Kanal>
+  <Kanal CHANNELNAME="M001Ch2" CHANNELTYPE="DI">
+<!--#READPI ADR=IX0.1&FORMAT=%d-->
+  </Kanal>
+  <Kanal CHANNELNAME="M001Ch3" CHANNELTYPE="DI">
+<!--#READPI ADR=IX0.2&FORMAT=%d-->
+  </Kanal>
+  <Kanal CHANNELNAME="M001Ch4" CHANNELTYPE="DI">
+<!--#READPI ADR=IX0.3&FORMAT=%d-->
+  </Kanal>
+  <Kanal CHANNELNAME="M001Ch5" CHANNELTYPE="DI">
+<!--#READPI ADR=IX0.4&FORMAT=%d-->
+  </Kanal>
+  <Kanal CHANNELNAME="M001Ch6" CHANNELTYPE="DI">
+<!--#READPI ADR=IX0.5&FORMAT=%d-->
+  </Kanal>
+  <Kanal CHANNELNAME="M001Ch7" CHANNELTYPE="DI">
+<!--#READPI ADR=IX0.6&FORMAT=%d-->
+  </Kanal>
+  <Kanal CHANNELNAME="M001Ch8" CHANNELTYPE="DI">
+<!--#READPI ADR=IX0.7&FORMAT=%d-->
+  </Kanal>
+ </Module>
+ <Module ARTIKELNR="750-5xx" MODULETYPE="DO" CHANNELCOUNT="8" MAP="FB2">
+  <Kanal CHANNELNAME="M002Ch1" CHANNELTYPE="DO">
+<!--#READPI ADR=QX0.0&FORMAT=%d-->
+  </Kanal>
+  <Kanal CHANNELNAME="M002Ch2" CHANNELTYPE="DO">
+<!--#READPI ADR=QX0.1&FORMAT=%d-->
+  </Kanal>
+  <Kanal CHANNELNAME="M002Ch3" CHANNELTYPE="DO">
+<!--#READPI ADR=QX0.2&FORMAT=%d-->
+  </Kanal>
+  <Kanal CHANNELNAME="M002Ch4" CHANNELTYPE="DO">
+<!--#READPI ADR=QX0.3&FORMAT=%d-->
+  </Kanal>
+  <Kanal CHANNELNAME="M002Ch5" CHANNELTYPE="DO">
+<!--#READPI ADR=QX0.4&FORMAT=%d-->
+  </Kanal>
+  <Kanal CHANNELNAME="M002Ch6" CHANNELTYPE="DO">
+<!--#READPI ADR=QX0.5&FORMAT=%d-->
+  </Kanal>
+  <Kanal CHANNELNAME="M002Ch7" CHANNELTYPE="DO">
+<!--#READPI ADR=QX0.6&FORMAT=%d-->
+  </Kanal>
+  <Kanal CHANNELNAME="M002Ch8" CHANNELTYPE="DO">
+<!--#READPI ADR=QX0.7&FORMAT=%d-->
+  </Kanal>
+ </Module>
+</WAGO>

@@ -1,0 +1,9 @@
+# Nmap 7.01 scan initiated Sat Aug  6 12:40:27 2016 as: nmap -oN scan.56 10.50.1.56
+Nmap scan report for 10.50.1.56
+Host is up (1.0s latency).
+Not shown: 999 closed ports
+PORT   STATE SERVICE
+23/tcp open  telnet
+MAC Address: 60:52:D0:05:5B:4F (Facts Engineering)
+
+# Nmap done at Sat Aug  6 12:41:23 2016 -- 1 IP address (1 host up) scanned in 55.97 seconds

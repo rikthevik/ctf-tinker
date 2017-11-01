@@ -1,0 +1,136 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"></meta>
+    <link rel="stylesheet" type="text/css" href="formate.css"></link>
+    <title>Configuration page for the ethernet protocols </title>
+  </head>
+  <body>
+    <div class="headline">Port configuration</div>
+    <div class="description">
+      This page is for the configuration of the network protocols.
+      The configuration is stored in an EEPROM and changes will take effect 
+      after the next software or hardware reset.
+    </div>
+    <div align="center">
+      <form action="/SETPORTCNF" method="POST">
+        <table class="cfgtable">
+          <caption> Port Settings </caption>
+          <tr>
+            <th> Protocol </th>
+            <th> Port </th>
+            <th> Enabled </th>
+          </tr>
+          <tr>
+            <td> FTP </td>
+            <td> 21 </td>
+            <td> <input type="CHECKBOX" name="PFTP" value="FTP" <!--#SHOWPORTCNF CMD=FTP--> > </td>
+          </tr>
+          <!--#SHOWPORTCNF CMD=STARTSNTP-->
+          <tr>
+            <td> SNTP </td>
+            <td> 123 </td>
+            <td> <input type="CHECKBOX" name="PSNTP" value="SNTP" <!--#SHOWPORTCNF CMD=SNTP--> > </td>
+          </tr>
+          <!--#SHOWPORTCNF CMD=STOPSNTP-->
+          <tr>
+            <td> HTTP </td>
+            <td> 80 </td>
+            <td> <input type="CHECKBOX" name="PHTTP" value="HTTP" <!--#SHOWPORTCNF CMD=HTTP--> > </td>
+          </tr>
+          <!--#SHOWPORTCNF CMD=STARTSSL-->
+          <tr>
+            <td> HTTPS </td>
+            <td> 443 </td>
+            <td> <input type="CHECKBOX" name="PHTTPS" value="HTTPS" <!--#SHOWPORTCNF CMD=HTTPS--> > </td>
+          </tr>
+          <!--#SHOWPORTCNF CMD=STOPSSL-->
+          <!--#SHOWPORTCNF CMD=STARTSNMP-->
+          <tr>
+            <td> SNMP </td>
+            <td> 161, 162 </td>
+            <td> <input type="CHECKBOX" name="PSNMP" value="SNMP" <!--#SHOWPORTCNF CMD=SNMP--> > </td>
+          </tr>
+          <!--#SHOWPORTCNF CMD=STOPSNMP-->
+          <!--#SHOWPORTCNF CMD=STARTEML-->
+          <tr>
+            <td> Ethernet IP </td>
+            <td> 44818 (TCP), 2222 (UDP) </td>
+            <td> <input type="CHECKBOX" name="PEML" value="EML" <!--#SHOWPORTCNF CMD=EML--> > </td>
+          </tr>
+          <!--#SHOWPORTCNF CMD=STOPEML-->
+          <tr>
+            <td> Modbus UDP </td>
+            <td> 502 </td>
+            <td> <input type="CHECKBOX" name="PMUDP" value="MUDP" <!--#SHOWPORTCNF CMD=MUDP--> > </td>
+          </tr>
+          <tr>
+            <td> Modbus TCP </td>
+            <td> 502 </td>
+            <td> <input type="CHECKBOX" name="PMTCP" value="MTCP" <!--#SHOWPORTCNF CMD=MTCP--> > </td>
+          </tr>
+          <tr>
+            <td> WAGO Services </td>
+            <td> 6626 </td>
+            <td> <input type="CHECKBOX" name="PWGSERV" value="WGSERV" <!--#SHOWPORTCNF CMD=WGSERV--> > </td>
+          </tr>
+          <!--#SHOWPORTCNF CMD=STARTPFC-->
+          <tr>
+            <td> CoDeSys </td>
+            <td> 2455 </td>
+            <td> <input type="CHECKBOX" name="PIOPRO" value="IOPRO" <!--#SHOWPORTCNF CMD=IOPRO--> > </td>
+          </tr>
+          <!--#SHOWPORTCNF CMD=STOPPFC-->
+          <!--#SHOWPORTCNF CMD=STARTMRP1-->
+          <tr>
+          <th colspan="3"> Boot Options P1 </th>
+          </tr>
+          <!--#SHOWPORTCNF CMD=STOPMRP1--> 
+          <tr>
+            <td> BootP </td>
+            <td> 68 </td>
+            <td> <input type="RADIO" name="PCFGIP" value="BOOTP" <!--#SHOWPORTCNF CMD=BOOTP--> > </td>
+          </tr>
+          <tr>
+            <td> DHCP </td>
+            <td> 68 </td>
+            <td> <input type="RADIO" name="PCFGIP" value="DHCP" <!--#SHOWPORTCNF CMD=DHCP--> > </td>
+          </tr>
+          <!--#SHOWPORTCNF CMD=STARTAUTOIP-->
+          <tr>
+            <td>Auto-IP/Zeroconf</td>
+            <td> -- </td>
+            <td> <input type="RADIO" name="PCFGIP" value="AUTOIP"<!--#SHOWPORTCNF CMD=AUTOIP--> > </td>
+          </tr>
+          <!--#SHOWPORTCNF CMD=STOPAUTOIP-->
+          <tr>
+            <td> use IP from EEPROM </td>
+            <td> -- </td>
+            <td> <input type="RADIO" name="PCFGIP" value="EEPROMIP" <!--#SHOWPORTCNF CMD=EEPROMIP--> > </td>
+          </tr>
+          <!--#SHOWPORTCNF CMD=STARTMRP2-->
+          <tr>
+          <th colspan="3"> Boot Options P2 </th>
+          </tr>
+          <tr>
+            <td> BootP </td>
+            <td> 68 </td>
+            <td> <input type="RADIO" name="PCFGIP2" value="BOOTP2" <!--#SHOWPORTCNF CMD=BOOTP2--> > </td>
+          </tr>
+          <tr>
+            <td> DHCP </td>
+            <td> 68 </td>
+            <td> <input type="RADIO" name="PCFGIP2" value="DHCP2" <!--#SHOWPORTCNF CMD=DHCP2--> > </td>
+          </tr>
+          <tr>
+            <td> use IP from EEPROM </td>
+            <td> -- </td>
+            <td> <input type="RADIO" name="PCFGIP2" value="EEPROMIP2" <!--#SHOWPORTCNF CMD=EEPROMIP2--> > </td>
+          </tr>
+          <!--#SHOWPORTCNF CMD=STOPMRP2--> 
+        </table>
+        <p class="conform"> <input type="RESET" value="UNDO"> <input type="SUBMIT" value="SUBMIT" name="SUBMIT"> </p>
+      </form>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"></meta>
+    <link rel="stylesheet" type="text/css" href="formate.css"></link>
+    <title> Information of the I/O configuration </title>
+  </head>
+  <body>
+    <div class="headline">I/O configuration</div>
+    <div align="center">
+      <p></p>
+      <table class="cfgtable">
+        <caption> Configuration details </caption>
+        <colgroup>
+          <col width="50%"></col>
+          <col width="50%"></col>
+        </colgroup>
+        <tr>
+          <td>Number of modules on terminalbus </td>
+          <td> <!--#SHOWCPLINFO CMD=KBUS_TRMNLS--> </td>
+        </tr>
+        <tr>
+          <td>Number of modules in I/O configuration</td>
+          <td> <!--#SHOWCPLINFO CMD=CFG_MODULES--> </td>
+        </tr>
+      </table>
+      <form action="/DOCPLFUNC" method="POST">
+       <p class="conform"> <input type="submit" name="DO_CREATE_EA_XML" value="create ea-config.xml"> </p>
+      </form>
+      <iframe src="/etc/ea-config.xml" width="100%" height="70%" scrolling="auto" frameborder="0"></iframe>
+    </div>
+  </body>
+</html>

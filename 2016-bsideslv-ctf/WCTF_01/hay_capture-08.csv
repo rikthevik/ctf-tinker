@@ -1,0 +1,12 @@
+
+BSSID, First time seen, Last time seen, channel, Speed, Privacy, Cipher, Authentication, Power, # beacons, # IV, LAN IP, ID-length, ESSID, Key
+62:E3:27:AD:ED:6D, 2016-08-06 10:32:44, 2016-08-06 10:52:59, 11,  54, WPA WEP OPN, WEP, OPN, -35,     6362,    50415,   0.  0.  0.  0,   7, WCTF_01, 
+
+Station MAC, First time seen, Last time seen, Power, # packets, BSSID, Probed ESSIDs
+00:C0:CA:89:20:CE, 2016-08-06 10:41:44, 2016-08-06 10:52:30, -55,      394, 62:E3:27:AD:ED:6D,
+42:B4:07:67:A5:EC, 2016-08-06 10:40:12, 2016-08-06 10:52:01, -52,     3754, 62:E3:27:AD:ED:6D,
+E8:DE:27:12:FF:3B, 2016-08-06 10:40:26, 2016-08-06 10:52:09, -46,     5944, 62:E3:27:AD:ED:6D,
+60:E3:27:19:50:C2, 2016-08-06 10:32:55, 2016-08-06 10:52:26, -41,    54836, 62:E3:27:AD:ED:6D,
+00:C0:CA:50:E3:96, 2016-08-06 10:34:28, 2016-08-06 10:52:59, -38,    88673, 62:E3:27:AD:ED:6D,
+F4:F2:6D:16:D5:26, 2016-08-06 10:33:30, 2016-08-06 10:52:59,   0,   366688, 62:E3:27:AD:ED:6D,
+

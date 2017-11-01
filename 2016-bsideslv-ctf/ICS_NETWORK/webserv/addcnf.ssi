@@ -1,0 +1,32 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"></meta>
+    <link rel="stylesheet" type="text/css" href="formate.css"></link>
+    <title> Additional functions </title>
+  </head>
+  <body>
+    <div class="headline">Features</div>
+    <div class="description">
+      This page is for the configuration of additional features.
+      The configuration is stored in an EEPROM and changes will take effect
+      after the next software or hardware reset.
+    </div>
+    <div align="center">
+      <form action="/SETADDCNF" method="POST">
+        <table class="cfgtable">
+          <caption> Additional functions </caption>
+          <tr>
+            <td> Autoreset on system error </td>
+            <td> <input type="CHECKBOX" name="SASERR" value="ON" <!--#SHOWADDTCNF CMD=GASERR--> > </td>
+          </tr>
+          <tr>
+            <td> BootP Request before Static-IP </td>
+            <td> <input type="CHECKBOX" name="SBP842COMP" value="ON" <!--#SHOWADDTCNF CMD=GBP842COMP--> > </td>
+          </tr>
+        </table>
+        <p class="conform"> <input type="RESET" value="UNDO"> <input type="SUBMIT" value="SUBMIT" name="SUBMIT"> </p>
+      </form>
+    </div>
+  </body>
+</html>

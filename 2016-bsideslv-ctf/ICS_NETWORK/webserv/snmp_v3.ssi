@@ -1,0 +1,103 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"></meta>
+    <link rel="stylesheet" type="text/css" href="formate.css"></link>
+    <title> Configuration page for the SNMP part </title>
+  </head>
+  <body>
+    <div class="headline">SNMP Configuration</div>
+    <div class="description">
+      This page is dedicated to the SNMP configuration.
+      The new configuration is stored in an EEPROM and changes will take effect after
+      the next software or hardware reset.
+      <div style="color:red"> 'Authentication Key' and  'Privacy Key' have to be at least 8 characters. </div>
+    </div>
+    <div align="center">
+      <form action="/SETSNMP_V3" method="POST">
+        <table class="cfgtable">
+          <caption>SNMP v3 (user based)</caption>
+          <tr>
+            <td> 1.User </td>
+            <td> activate     <input type="CHECKBOX" name="SNMP_V3_USER1_ENABLE" value="SNMP_V3_USER1_ENABLE" <!--#SHOWSNMP_V3 CMD=SNMP_V3_USER1_ENABLE--> > </td>
+            <td> </td>
+            <td> </td>
+          </tr>
+         <tr>
+            <td> Authentication Type </td>
+            <td> None <input type="radio" name="SNMP_V3_USER1_AUTH_TYPE" value="SNMP_V3_USER1_AUTH_TYPE_NONE" <!--#SHOWSNMP_V3 CMD=SNMP_V3_USER1_AUTH_TYPE_NONE--> > </td>
+            <td> MD5  <input type="radio" name="SNMP_V3_USER1_AUTH_TYPE" value="SNMP_V3_USER1_AUTH_TYPE_MD5"  <!--#SHOWSNMP_V3 CMD=SNMP_V3_USER1_AUTH_TYPE_MD5--> > </td>
+            <td> SHA1 <input type="radio" name="SNMP_V3_USER1_AUTH_TYPE" value="SNMP_V3_USER1_AUTH_TYPE_SHA"  <!--#SHOWSNMP_V3 CMD=SNMP_V3_USER1_AUTH_TYPE_SHA--> > </td>
+          </tr>
+          <tr>
+            <td> Security Authentication Name </td>
+            <td colspan="3"> <input type="TEXT" name="SNMP_V3_USER1_AUTH_NAME" id="SNMP_V3_USER1_AUTH_NAME" size="32" maxlength="31" value="<!--#SHOWSNMP_V3 CMD=SNMP_V3_USER1_AUTH_NAME-->"> </td>
+          </tr>
+          <tr>
+            <td> Authentication Key </td>
+            <td colspan="3"> <input type="TEXT" name="SNMP_V3_USER1_AUTH_KEY" id="SNMP_V3_USER1_AUTH_KEY" size="32" maxlength="31" value="<!--#SHOWSNMP_V3 CMD=SNMP_V3_USER1_AUTH_KEY-->"> </td>
+          </tr>
+          <tr>
+            <td> Privacy Enable </td>
+            <td colspan="3"> DES <input type="CHECKBOX" name="SNMP_V3_USER1_PRIVACY_DES_ENABLE" value="SNMP_V3_USER1_PRIVACY_DES_ENABLE" <!--#SHOWSNMP_V3 CMD=SNMP_V3_USER1_PRIVACY_DES_ENABLE--> > </td>
+          </tr>
+          <tr>
+            <td> Privacy Key </td>
+            <td colspan="3"> <input type="TEXT" name="SNMP_V3_USER1_PRIVACY_KEY" id="SNMP_V3_USER1_PRIVACY_KEY" size="32" maxlength="31" value="<!--#SHOWSNMP_V3 CMD=SNMP_V3_USER1_PRIVACY_KEY-->"> </td>
+          </tr>
+          <tr>
+            <td> Notification/Trap enable </td>
+       		<td colspan="3"> V3 <input type="CHECKBOX" name="SNMP_V3_USER1_TRAP_ENABLE" value="SNMP_V3_USER1_TRAP_ENABLE" <!--#SHOWSNMP_V3 CMD=SNMP_V3_USER1_TRAP_ENABLE--> > </td>
+          </tr>
+          <tr>
+            <td> Notification Receiver IP </td>
+            <td colspan="3"> <input type="TEXT" name="SNMP_V3_USER1_TRAP_IP" id="SNMP_V3_USER1_TRAP_IP" size="32" maxlength="31" value="<!--#SHOWSNMP_V3 CMD=SNMP_V3_USER1_TRAP_IP-->"> </td>
+          </tr>
+          <tr>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+          </tr>
+          <tr>
+            <td> 2.User </td>
+       		<td> activate     <input type="CHECKBOX" name="SNMP_V3_USER2_ENABLE" value="SNMP_V3_USER2_ENABLE" <!--#SHOWSNMP_V3 CMD=SNMP_V3_USER2_ENABLE--> > </td>
+       		<td> </td>
+       		<td> </td>
+   		  </tr>
+          <tr>
+            <td> Authentication Type </td>
+            <td> None <input type="radio" name="SNMP_V3_USER2_AUTH_TYPE" value="SNMP_V3_USER2_AUTH_TYPE_NONE" <!--#SHOWSNMP_V3 CMD=SNMP_V3_USER2_AUTH_TYPE_NONE--> > </td>
+            <td> MD5  <input type="radio" name="SNMP_V3_USER2_AUTH_TYPE" value="SNMP_V3_USER2_AUTH_TYPE_MD5"  <!--#SHOWSNMP_V3 CMD=SNMP_V3_USER2_AUTH_TYPE_MD5--> > </td>
+            <td> SHA1 <input type="radio" name="SNMP_V3_USER2_AUTH_TYPE" value="SNMP_V3_USER2_AUTH_TYPE_SHA"  <!--#SHOWSNMP_V3 CMD=SNMP_V3_USER2_AUTH_TYPE_SHA--> > </td>
+          </tr>
+          <tr>
+            <td> Security Authentication Name </td>
+            <td colspan="3"> <input type="TEXT" name="SNMP_V3_USER2_AUTH_NAME" id="SNMP_V3_USER2_AUTH_NAME" size="32" maxlength="31" value="<!--#SHOWSNMP_V3 CMD=SNMP_V3_USER2_AUTH_NAME-->"> </td>
+          </tr>
+          <tr>
+            <td> Authentication Key </td>
+            <td colspan="3"> <input type="TEXT" name="SNMP_V3_USER2_AUTH_KEY" id="SNMP_V3_USER2_AUTH_KEY" size="32" maxlength="31" value="<!--#SHOWSNMP_V3 CMD=SNMP_V3_USER2_AUTH_KEY-->"> </td>
+          </tr>
+          <tr>
+            <td> Privacy Enable </td>
+            <td colspan="3"> DES <input type="CHECKBOX" name="SNMP_V3_USER2_PRIVACY_DES_ENABLE" value="SNMP_V3_USER2_PRIVACY_DES_ENABLE" <!--#SHOWSNMP_V3 CMD=SNMP_V3_USER2_PRIVACY_DES_ENABLE--> > </td>
+          </tr>
+          <tr>
+            <td> Privacy Key </td>
+            <td colspan="3"> <input type="TEXT" name="SNMP_V3_USER2_PRIVACY_KEY" id="SNMP_V3_USER2_PRIVACY_KEY" size="32" maxlength="31" value="<!--#SHOWSNMP_V3 CMD=SNMP_V3_USER2_PRIVACY_KEY-->"> </td>
+          </tr>
+          </tr>
+            <td> Notification/Trap enable </td>
+       		<td colspan="3"> V3 <input type="CHECKBOX" name="SNMP_V3_USER2_TRAP_ENABLE" value="SNMP_V3_USER2_TRAP_ENABLE" <!--#SHOWSNMP_V3 CMD=SNMP_V3_USER2_TRAP_ENABLE--> > </td>
+   		  </tr>
+          <tr>
+            <td> Notification Receiver IP </td>
+            <td colspan="3"> <input type="TEXT" name="SNMP_V3_USER2_TRAP_IP" id="SNMP_V3_USER2_TRAP_IP" size="32" maxlength="31" value="<!--#SHOWSNMP_V3 CMD=SNMP_V3_USER2_TRAP_IP-->"> </td>
+          </tr>
+        </table>
+        <p class="conform"> <input type="RESET" value="UNDO"> <input type="SUBMIT" value="SUBMIT" name="SUBMIT"> </p>
+     </form>
+    </div>
+  </body>
+</html>

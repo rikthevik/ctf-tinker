@@ -1,0 +1,74 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"></meta>
+    <link rel="stylesheet" type="text/css" href="formate.css"></link>
+    <title> Config of the security from the WAGO WebServer </title>
+  </head>
+  <body>
+    <div class="headline">Security</div>
+    <div class="description">
+      This page is intended to disable the basic authentication.
+      Additionally you can set new passwords for the existing user.
+      The new values are stored in an EEPROM and changes will take effect immediately.
+    </div>
+    <div align="center">
+      <form action="/WEBAUTHCONF" method="POST">
+        <table class="cfgtable">
+          <caption>Webserver Security</caption
+          <tr>
+            <td> Webserver authentication enabled</td>
+            <td> <input type="CHECKBOX" name="SETWEBAUTH" size="25" maxlength="15" value="ON" <!--#GETWEBAUTH CMD=AUTHSTATE--> > </td>
+          </tr>
+        </table>
+        <p class="conform"> <input type="RESET" value="UNDO"> <input type="SUBMIT" value="SUBMIT" name="SUBMIT"> </p>
+      </form>
+      <form action="/SETWEBPASS" method="POST">
+        <table class="cfgtable">
+<!--#SHOWPORTCNF CMD=STARTNOPFC-->
+          <caption>Webserver and FTP User configuration </caption>
+<!--#SHOWPORTCNF CMD=STOPNOPFC-->
+<!--#SHOWPORTCNF CMD=STARTPFC-->
+          <caption>Webserver, FTP and PLC User configuration </caption>
+<!--#SHOWPORTCNF CMD=STOPPFC-->
+          <tr>
+            <td> User:
+              <select name="ULIST" size="1">
+                <option> <!--#GETWEBAUTH CMD=USER1--> </option>
+                <option> <!--#GETWEBAUTH CMD=USER2--> </option>
+                <option> <!--#GETWEBAUTH CMD=USER3--> </option>
+              </select>
+            </td>
+            <td> Password: </td>
+            <td> <input type="password" name="PASS1" size="16" maxlength="15"> </td>
+          </tr>
+          <tr>
+            <td></td>
+            <td> Confirm Password: </td>
+            <td> <input type="password" name="PASS2" size="16" maxlength="15"> </td>
+          </tr>
+        </table>
+        <p class="conform"> <input type="RESET" value="UNDO"> <input type="SUBMIT" value="SUBMIT" name="SUBMIT"> </p>
+      </form>
+<!--#SHOWPORTCNF CMD=STARTPFC-->
+      <form action="/SETPLCAUTH" method="POST">
+        <table class="cfgtable">
+          <caption>PLC Security</caption
+          <tr>
+            <td> Port 2455 authentication enabled</td>
+            <td> <input type="CHECKBOX" name="PLCAUTH" size="25" maxlength="15" value="ON" <!--#GETPLCAUTH CMD=PLCAUTH--> > </td>
+          </tr>
+        </table>
+        <p class="conform"> <input type="RESET" value="UNDO"> <input type="SUBMIT" value="SUBMIT" name="SUBMIT"> </p>
+      </form>
+<!--#SHOWPORTCNF CMD=STOPPFC-->
+      <form action="/DOCPLFUNC" method="POST">
+        <p class="warning">
+          Attention: You will lose the connection to the webserver after the software reset, if the IP configuration was changed.
+          Please load the webpage with the proper address in this case again.
+        </p>
+        <input class="warning" type="submit" name="DO_SWRST" value="Software Reset">
+      </form>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,159 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+    <link rel="stylesheet" type="text/css" href="formate.css">
+    <title>Configuration page for the raw ethernet options </title>
+  </head>
+  <body>
+  <div class="headline">Ethernet configuration</div>
+    <div class="description">
+      This page is for the configuration of the Ethernet Switch and Aging settings.
+      The configuration is stored in an EEPROM and changes will take effect
+      after the next software or hardware reset.
+    </div>
+
+<!-- MAIN BODY OF PAGE -->
+    <div align="center">
+  <form action="/SET_ETH_PHY" method="POST">
+        <table class="cfgtable">
+      <caption>Phy Configuration</caption>
+        <tr>
+        <th>Description</th>
+          <th>Port 1</th>
+          <th>Port 2</th>
+        </tr>
+        <tr>
+          <td align="left">Enable Port</td>
+          <td><input type="CHECKBOX" name="ETH_ENABLE_P1" value="ON" <!--#SHOWETH CMD=ETH_ENABLE_P1-->></td>
+          <td><input type="CHECKBOX" name="ETH_ENABLE_P2" value="ON" <!--#SHOWETH CMD=ETH_ENABLE_P2-->></td>
+        </tr>
+        <tr>
+          <td align="left">Enable Autonegotiation</td>
+          <td><input type="RADIO" name="ETH_SPEED_CONFIG_P1" value="ETH_AUTONEG_ON" <!--#SHOWETH CMD=ETH_AUTONEG_P1-->></td>
+          <td><input type="RADIO" name="ETH_SPEED_CONFIG_P2" value="ETH_AUTONEG_ON" <!--#SHOWETH CMD=ETH_AUTONEG_P2-->></td>
+        </tr>
+        <tr>
+          <td align="left">10 MBit Half Duplex</td>
+          <td><input type="RADIO" name="ETH_SPEED_CONFIG_P1" value="ETH_HD10_ON" <!--#SHOWETH CMD=ETH_HD10_P1-->></td>
+          <td><input type="RADIO" name="ETH_SPEED_CONFIG_P2" value="ETH_HD10_ON" <!--#SHOWETH CMD=ETH_HD10_P2-->></td>
+        </tr>
+        <tr>
+          <td align="left">10 MBit Full Duplex</td>
+          <td><input type="RADIO" name="ETH_SPEED_CONFIG_P1" value="ETH_FD10_ON" <!--#SHOWETH CMD=ETH_FD10_P1-->></td>
+          <td><input type="RADIO" name="ETH_SPEED_CONFIG_P2" value="ETH_FD10_ON" <!--#SHOWETH CMD=ETH_FD10_P2-->></td>
+        </tr>
+        <tr>
+          <td align="left">100 MBit Half Duplex</td>
+          <td><input type="RADIO" name="ETH_SPEED_CONFIG_P1" value="ETH_HD100_ON" <!--#SHOWETH CMD=ETH_HD100_P1-->></td>
+          <td><input type="RADIO" name="ETH_SPEED_CONFIG_P2" value="ETH_HD100_ON" <!--#SHOWETH CMD=ETH_HD100_P2-->></td>
+        </tr>
+        <tr>
+          <td align="left">100 MBit Full Duplex</td>
+          <td><input type="RADIO" name="ETH_SPEED_CONFIG_P1" value="ETH_FD100_ON" <!--#SHOWETH CMD=ETH_FD100_P1-->></td>
+          <td><input type="RADIO" name="ETH_SPEED_CONFIG_P2" value="ETH_FD100_ON" <!--#SHOWETH CMD=ETH_FD100_P2-->></td>
+        </tr>
+        </table>
+    <br /><input type="RESET" value="UNDO" ><input type="SUBMIT" value="SUBMIT" name="SUBMIT"><br />
+     </form>
+  <form action="/SET_MAC_FILTER" method="POST">
+		<table class="cfgtable">
+      <caption>MAC Address Filter</caption>
+			<tr>
+        <th colspan="2">Enable <input type="CHECKBOX" name="ETH_ENABLE_MACFILTER" value="ON" <!--#SHOWETH CMD=ETH_ENABLE_MACFILTER-->></th>
+			</tr>
+			<tr>
+            <th colspan="2" align="center">
+              &nbsp;&nbsp;&nbsp;&nbsp; Whitelist format: xx:yy:zz:aa:bb:cc &nbsp;&nbsp;&nbsp;&nbsp;
+            </th>
+      </tr> 
+      <tr>
+        <td>&nbsp;&nbsp;&nbsp;&nbsp;WAGO 750/767 devices</td>
+        <td><input type="CHECKBOX" name="ETH_ALLOW_WAGO" value="ON" <!--#SHOWETH CMD=ETH_ALLOW_WAGO-->></td>
+      </tr> 
+      <tr>
+        <td>&nbsp;&nbsp;&nbsp;&nbsp;MAC 1</td>
+        <td><input type="TEXT" name="MAC1" id="MAC1" size="30" maxlength="17" value="<!--#SHOWETH CMD=ETH_MAC1-->"></td>
+      </tr> 
+      <tr>
+            <td>&nbsp;&nbsp;&nbsp;&nbsp;MAC 2</td>
+        <td><input type="TEXT" name="MAC2" id="MAC2" size="30" maxlength="17" value="<!--#SHOWETH CMD=ETH_MAC2-->"></td>
+      </tr> 
+      <tr>
+            <td>&nbsp;&nbsp;&nbsp;&nbsp;MAC 3</td>
+        <td><input type="TEXT" name="MAC3" id="MAC3" size="30" maxlength="17" value="<!--#SHOWETH CMD=ETH_MAC3-->"></td>
+      </tr> 
+      <tr>
+            <td>&nbsp;&nbsp;&nbsp;&nbsp;MAC 4</td>
+        <td><input type="TEXT" name="MAC4" id="MAC4" size="30" maxlength="17" value="<!--#SHOWETH CMD=ETH_MAC4-->"></td>
+			</tr>
+			<tr>
+            <td>&nbsp;&nbsp;&nbsp;&nbsp;MAC 5</td>
+        <td><input type="TEXT" name="MAC5" id="MAC5" size="30" maxlength="17" value="<!--#SHOWETH CMD=ETH_MAC5-->"></td>
+			</tr>
+		</table>
+    <br /><input type="RESET" value="UNDO" ><input type="SUBMIT" value="SUBMIT" name="SUBMIT"><br />
+     </form>
+     <form action="/SET_ETH_SWITCH" method="POST">
+        <table class="cfgtable">
+          <caption>Misc. Configuration</caption>
+        <tr>
+        <th>Description</th>
+          <th>Port 1</th>
+          <th>Port 2</th>
+          <th>internal Port</th>
+        </tr>
+        <tr>
+          <td align="left">Input Limit Rate</td>
+          <td><select name="ETH_RXRATE_P1"><!--#SHOWETH CMD=ETH_RXRATE_P1--></select></td>
+          <td><select name="ETH_RXRATE_P2"><!--#SHOWETH CMD=ETH_RXRATE_P2--></select></td>
+          <td><select name="ETH_RXRATE_INTERNAL"><!--#SHOWETH CMD=ETH_RXRATE_INTERNAL--></select></td>
+        </tr>
+        <tr>
+          <td align="left">Output Limit Rate</td>
+          <td><select name="ETH_TXRATE_P1"><!--#SHOWETH CMD=ETH_TXRATE_P1--></select></td>
+          <td><select name="ETH_TXRATE_P2"><!--#SHOWETH CMD=ETH_TXRATE_P2--></select></td>
+          <td><select name="ETH_TXRATE_INTERNAL"><!--#SHOWETH CMD=ETH_TXRATE_INTERNAL--></select></td>
+        </tr>
+<!--#SHOWPORTCNF CMD=STARTAGING-->
+      <tr>
+        <td align="left">Fast Aging</td>
+        <td align="center"><input type="CHECKBOX" name="ETH_ENABLE_FAST_AGING" value="ON" <!--#SHOWETH CMD=ETH_ENABLE_FAST_AGING-->></td>
+            <td> </td>			
+            <td> </td>			
+      </tr>
+<!--#SHOWPORTCNF CMD=STOPAGING-->
+        <tr>
+          <td align="left">BC protection</td>
+          <td><input type="CHECKBOX" name="ETH_ENABLE_BC_PROT_P1" value="ON" <!--#SHOWETH CMD=ETH_ENABLE_BC_PROT_P1-->></td>
+          <td><input type="CHECKBOX" name="ETH_ENABLE_BC_PROT_P2" value="ON" <!--#SHOWETH CMD=ETH_ENABLE_BC_PROT_P2-->></td>
+          <td> </td>
+        </tr>
+        <tr>
+<!--#SHOWPORTCNF CMD=STARTMIRROR-->
+          <td> Port Mirror </td>
+          <td colspan="4"><input type="CHECKBOX" name="ETH_ENABLE_MIRROR" value="ON" <!--#SHOWETH CMD=ETH_ENABLE_MIRROR-->></td>
+        </tr>
+        <tr>
+          <td align="left">Sniffer Port</td>
+          <td><input type="RADIO" name="ETH_SNIFFER_PORT" value="ETH_SNIFFER_P1_ON" <!--#SHOWETH CMD=ETH_SNIFFER_P1-->></td>
+          <td><input type="RADIO" name="ETH_SNIFFER_PORT" value="ETH_SNIFFER_P2_ON" <!--#SHOWETH CMD=ETH_SNIFFER_P2-->></td>
+          <td> </td>
+        </tr>
+        <tr>
+          <td align="left">Mirror Port</td>
+          <td><input type="RADIO" name="ETH_MIRROR_PORT" value="ETH_MIRROR_P1_ON" <!--#SHOWETH CMD=ETH_MIRROR_P1-->></td>
+          <td><input type="RADIO" name="ETH_MIRROR_PORT" value="ETH_MIRROR_P2_ON" <!--#SHOWETH CMD=ETH_MIRROR_P2-->></td>
+          <td><input type="RADIO" name="ETH_MIRROR_PORT" value="ETH_MIRROR_INTERNAL_ON" <!--#SHOWETH CMD=ETH_MIRROR_INTERNAL-->></td>
+        </tr>
+        <tr>
+<!--#SHOWPORTCNF CMD=STOPMIRROR-->
+          <td> Ethernet MTU </td>
+          <td colspan="3"> <input type="TEXT" name="ETH_MTU_SIZE" id="ETH_MTU_SIZE" maxlength="16" value="<!--#SHOWETH CMD=ETH_MTU_SIZE-->"> </td>
+        </tr>
+      </table>
+    <br /><input type="RESET" value="UNDO" ><input type="SUBMIT" value="SUBMIT" name="SUBMIT"><br />
+    </form>
+    </div>
+  </body>
+</html>

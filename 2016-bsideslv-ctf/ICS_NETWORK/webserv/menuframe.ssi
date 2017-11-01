@@ -1,0 +1,14 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"></meta>
+    <link rel="stylesheet" type="text/css" href="formate.css"></link>
+    <title> Part of the Index.htm page for WAGO Ethernet </title>
+  </head>
+  <body>
+    <div class="navbox">
+      <h1>Navigation</h1>
+      <ul><!--#SHOWCPLINFO CMD=DO_FLINKS--></ul>
+    </div>
+  </body>
+</html>

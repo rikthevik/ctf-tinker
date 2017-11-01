@@ -1,0 +1,16 @@
+# Nmap 7.01 scan initiated Sat Aug  6 11:50:28 2016 as: nmap -oN scan.pingsweep.ics -sP 10.50.1.*
+Nmap scan report for 10.50.1.1
+Host is up (0.14s latency).
+MAC Address: 60:E3:27:AD:ED:6F (Tp-link Technologies)
+Nmap scan report for 10.50.1.53
+Host is up (0.42s latency).
+MAC Address: 00:30:DE:09:58:F6 (Wago Kontakttechnik Gmbh)
+Nmap scan report for 10.50.1.56
+Host is up (0.0076s latency).
+MAC Address: 60:52:D0:05:5B:4F (Facts Engineering)
+Nmap scan report for 10.50.1.57
+Host is up (0.063s latency).
+MAC Address: 6C:B0:CE:0D:0E:26 (Netgear)
+Nmap scan report for grimlock.lan (10.50.1.233)
+Host is up.
+# Nmap done at Sat Aug  6 11:50:43 2016 -- 256 IP addresses (5 hosts up) scanned in 15.23 seconds

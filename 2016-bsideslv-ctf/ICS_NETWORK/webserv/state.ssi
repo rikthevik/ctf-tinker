@@ -1,0 +1,99 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"></meta>
+    <link rel="stylesheet" type="text/css" href="formate.css"></link>
+    <title> Information of the Ethernet module </title>
+  </head>
+  <body>
+    <div class="headline">Status information</div>
+    <div align="center">
+      <p></p>
+      <table class="cfgtable">
+        <caption> Coupler details </caption>
+        <colgroup>
+          <col width="50%"></col>
+          <col width="50%"></col>
+        </colgroup>
+        <tr>
+          <td>Order number </td>
+          <td> <!--#SHOWCPLINFO CMD=ORD_NR--> </td>
+        </tr>
+        <tr>
+          <td>Mac address </td>
+          <td> <!--#SHOWCPLINFO CMD=MAC_ADDR--> </td>
+        </tr>
+        <tr>
+          <td>Firmware revision </td>
+          <td> <!--#SHOWCPLINFO CMD=FW_VER--> </td>
+        </tr>
+      </table>
+      <p></p>
+      <table class="cfgtable">
+        <caption> Actual network settings </caption>
+        <colgroup>
+          <col width="50%"></col>
+          <col width="50%"></col>
+        </colgroup>
+        <tr>
+          <td>IP address </td>
+          <td> <!--#SHOWCPLINFO CMD=ACT_IP_ADDR--> </td>
+        </tr>
+        <tr>
+          <td>Subnet mask </td>
+          <td> <!--#SHOWCPLINFO CMD=ACT_SUB_ADDR--> </td>
+        </tr>
+        <tr>
+          <td>Gateway </td>
+          <td> <!--#SHOWCPLINFO CMD=ACT_GATE_ADDR--> </td>
+        </tr>
+        <tr>
+          <td>Host Name </td>
+          <td> <!--#SHOWCPLINFO CMD=ACT_HOST_NAME--> </td>
+        </tr>
+        <tr>
+          <td>Domain Name </td>
+          <td> <!--#SHOWCPLINFO CMD=ACT_DOMAIN_NAME--> </td>
+        </tr>
+          <!--#SHOWPORTCNF CMD=STARTSNTP-->
+        <tr>
+          <td>(S)NTP-Server </td>
+          <td> <!--#SHOWCPLINFO CMD=ACT_SNTP_SERVER--> </td>
+        </tr>
+          <!--#SHOWPORTCNF CMD=STOPSNTP-->
+        <tr>
+          <td>DNS-Server 1 </td>
+          <td> <!--#SHOWCPLINFO CMD=ACT_DNSS1--> </td>
+        </tr>
+        <tr>
+          <td>DNS-Server 2 </td>
+          <td> <!--#SHOWCPLINFO CMD=ACT_DNSS2--> </td>
+        </tr>
+      </table>
+      <p></p>
+      <table class="cfgtable">
+        <caption> Module status </caption>
+        <colgroup>
+          <col width="50%"></col>
+          <col width="50%"></col>
+        </colgroup>
+        <tr>
+          <td>State Modbus Watchdog: </td>
+          <td> <!--#SHOWCPLINFO CMD=MODCON_TIME--> </td>
+        </tr>
+        <tr>
+          <td>Error code: </td>
+          <td> <!--#SHOWCPLINFO CMD=ERR_CODE--> </td>
+        </tr>
+        <tr>
+          <td>Error argument: </td>
+          <td> <!--#SHOWCPLINFO CMD=ERR_ARG--> </td>
+        </tr>
+        <tr>
+          <td>Error description: </td>
+          <td> <!--#SHOWCPLINFO CMD=ERR_DESC--> </td>
+        </tr>
+      </table>
+    </div>
+  </body>
+</html>

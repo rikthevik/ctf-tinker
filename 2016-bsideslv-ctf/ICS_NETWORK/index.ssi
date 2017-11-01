@@ -1,0 +1,20 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"></meta>
+    <title> Hello WAGO Ethernet Web-Based Management Pwned </title>
+  </head>
+  <frameset rows="150,*">
+    <noframes>
+      <body>
+        Your browser does not support frames. Fallback to simple navigation is active.<br />
+        <ul><!--#SHOWCPLINFO CMD=DO_LINKS--></ul>
+      </body>
+    </noframes>
+    <frame name=upperFrame src="cplcfg/upperframe.htm" scrolling="auto" frameborder="0" noresize>
+    <frameset cols="175,*">
+      <frame name=menuFrame src="cplcfg/menuframe.ssi" scrolling="auto" frameborder="0" noresize>
+      <frame name=bodyFrame src="cplcfg/state.ssi" scrolling="auto" frameborder="0" noresize>
+    </frameset>
+  </frameset>
+</html>

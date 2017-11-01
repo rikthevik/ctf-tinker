@@ -1,0 +1,135 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"></meta>
+    <link rel="stylesheet" type="text/css" href="formate.css"></link>
+    <title> Trace configuration page </title>
+  </head>
+  <body>
+    <div class="headline">Trace Configuration</div>
+    <div class="description">
+      This page is for the configuration of the trace parameters.
+      The parameters are stored in an EEPROM and changes will take effect after 
+      the next software or hardware reset.
+    </div>            
+    <div align="center">
+      <form action="/STRACECNF" method="POST">
+        <table class="cfgtable">
+          <caption> Global Trace Configuration </caption>
+          <tr>
+            <td> Trace ON </td> 
+            <td> <input type="RADIO" name="TRACEENABLE" value="ON" <!--#GTRACECNF CMD=TRACESTATEON--> > </td>
+          </tr> 
+          <tr>
+            <td> Trace OFF </td> 
+            <td> <input type="RADIO" name="TRACEENABLE" value="OFF" <!--#GTRACECNF CMD=TRACESTATEOFF--> > </td>
+          </tr> 
+          <tr>
+            <td> COM1 </td> 
+            <td> <input type="RADIO" name="TRACEPORT" value="TRACECOM1" <!--#GTRACECNF CMD=COM1STATE-->> </td>
+          </tr> 
+          <tr>
+            <td> COM2 </td> 
+            <td> <input type="RADIO" name="TRACEPORT" value="TRACECOM2"<!--#GTRACECNF CMD=COM2STATE-->> </td>
+          </tr> 
+        </table>
+        <p class="conform"> <input type="RESET" value="UNDO"> <input type="SUBMIT" value="SUBMIT" name="SUBMIT"> </p>
+      </form>
+      <form action="/STRACEOPT" method="POST">
+        <table class="cfgtable">
+          <caption> Trace sources </caption>
+          <tr>
+            <td> All Error </td> 
+            <td> <input type="CHECKBOX" name="TERR" value="ON" <!--#GTRACEOPT CMD=TERR--> > </td>
+          </tr> 
+          <tr>
+            <td> Realtime Clock </td> 
+            <td> <input type="CHECKBOX" name="TCLOCK" value="ON" <!--#GTRACEOPT CMD=TCLOCK--> > </td>
+          </tr> 
+          <tr>
+            <td> Terminalbus reset </td> 
+            <td> <input type="CHECKBOX" name="TBUSR" value="ON" <!--#GTRACEOPT CMD=TBUSR--> > </td>
+          </tr> 
+          <tr>
+            <td> Terminalbus </td> 
+            <td> <input type="CHECKBOX" name="TKBC" value="ON" <!--#GTRACEOPT CMD=TKBC--> > </td>
+          </tr> 
+          <tr>
+            <td> Inlinecode </td>
+            <td> <input type="CHECKBOX" name="TICODE" value="ON" <!--#GTRACEOPT CMD=TICODE--> > </td>
+          </tr>
+          <tr>
+            <td> I2C </td> 
+            <td> <input type="CHECKBOX" name="TI2C" value="ON" <!--#GTRACEOPT CMD=TI2C--> > </td>
+          </tr> 
+          <tr>
+            <td> EEPROM </td> 
+            <td> <input type="CHECKBOX" name="TEEPROM" value="ON" <!--#GTRACEOPT CMD=TEEPROM--> > </td>
+          </tr> 
+          <tr>
+            <td> LED </td> 
+            <td> <input type="CHECKBOX" name="TLED" value="ON" <!--#GTRACEOPT CMD=TLED--> > </td>
+          </tr> 
+          <tr>
+            <td> Extended Protocol </td>
+            <td> <input type="CHECKBOX" name="TEXTP" value="ON" <!--#GTRACEOPT CMD=TEXTP--> > </td>
+          </tr>
+          <tr>
+            <td> Filesystem </td> 
+            <td> <input type="CHECKBOX" name="TRAMD" value="ON" <!--#GTRACEOPT CMD=TRAMD--> > </td>
+          </tr> 
+    <!--#SHOWPORTCNF CMD=STARTPFC-->
+          <tr>
+            <td> PFC </td>
+            <td> <input type="CHECKBOX" name="TPFC" value="ON" <!--#GTRACEOPT CMD=TPFC--> > </td>
+          </tr>
+    <!--#SHOWPORTCNF CMD=STOPPFC-->
+          <tr>
+            <td> Network </td> 
+            <td> <input type="CHECKBOX" name="TNET" value="ON" <!--#GTRACEOPT CMD=TNET--> > </td>
+          </tr> 
+          <tr>
+            <td> FTP </td> 
+            <td> <input type="CHECKBOX" name="TFTP" value="ON" <!--#GTRACEOPT CMD=TFTP--> > </td>
+          </tr>
+          <tr>
+            <td> Webserver </td>
+            <td> <input type="CHECKBOX" name="TWEB" value="ON" <!--#GTRACEOPT CMD=TWEB--> > </td>
+          </tr>
+          <tr>
+            <td> Modbus </td> 
+            <td> <input type="CHECKBOX" name="TMDBUS" value="ON" <!--#GTRACEOPT CMD=TMDBUS--> > </td>
+          </tr> 
+          <tr>
+            <td> Ethernet/IP </td> 
+            <td> <input type="CHECKBOX" name="TEML" value="ON" <!--#GTRACEOPT CMD=TEML--> > </td>
+          </tr> 
+          <tr>
+            <td> Ethernet/IP RX TX </td> 
+            <td> <input type="CHECKBOX" name="TEMLRXTX" value="ON" <!--#GTRACEOPT CMD=TEMLRXTX--> > </td>
+          </tr> 
+          <tr>
+            <td> 1288 Protocol </td>
+            <td> <input type="CHECKBOX" name="T1288" value="ON" <!--#GTRACEOPT CMD=T1288--> > </td>
+          </tr>
+          <tr>
+            <td> FW-Update Server </td>
+            <td> <input type="CHECKBOX" name="TFWUP" value="ON" <!--#GTRACEOPT CMD=TFWUP--> > </td>
+          </tr>
+    <!--#SHOWPORTCNF CMD=STARTSDCARD-->
+          <tr>
+            <td> SD-Card </td>
+            <td> <input type="CHECKBOX" name="TSDCARD" value="ON" <!--#GTRACEOPT CMD=TSDCARD--> > </td>
+          </tr>
+    <!--#SHOWPORTCNF CMD=STOPSDCARD-->
+          <tr>
+            <td> Disk Handler </td>
+            <td> <input type="CHECKBOX" name="TDISKHDL" value="ON" <!--#GTRACEOPT CMD=TDISKHDL--> > </td>
+          </tr>
+        </table>
+        <p class="conform"> <input type="RESET" value="UNDO"> <input type="SUBMIT" value="SUBMIT" name="SUBMIT"> </p>
+      </form>
+    </div>
+  </body>
+</html>
+ 

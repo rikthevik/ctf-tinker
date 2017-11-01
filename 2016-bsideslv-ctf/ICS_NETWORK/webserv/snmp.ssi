@@ -1,0 +1,88 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"></meta>
+    <link rel="stylesheet" type="text/css" href="formate.css"></link>
+    <title> Configuration page for the SNMP part </title>
+  </head>
+  <body>
+    <div class="headline">SNMP Configuration</div>
+    <div class="description">
+      This page is dedicated to the SNMP configuration.
+      The new configuration is stored in an EEPROM and changes will take effect after
+      the next software or hardware reset.
+    </div>
+    <div align="center">
+      <form action="/SETSNMP" method="POST">
+        <table class="cfgtable">
+          <caption>SNMP Configuration</caption>
+          <tr>
+            <td> Description </td>
+            <td> <input type="TEXT" name="SNMP_DESC" id="SNMP_DESC" size="40"  maxlength="31" value="<!--#SHOWSNMP CMD=SNMP_DESC-->"> </td>
+          </tr>
+          <tr>
+            <td> Physical location </td>
+            <td> <input type="TEXT" name="SNMP_LOC" id="SNMP_LOC" size="40"  maxlength="31" value="<!--#SHOWSNMP CMD=SNMP_LOC-->"> </td>
+          </tr>
+          <tr>
+            <td> Contact </td>
+            <td> <input type="TEXT" name="SNMP_CONT" id="SNMP_CONT" size="40" maxlength="31" value="<!--#SHOWSNMP CMD=SNMP_CONT-->"> </td>
+          </tr>
+        </table>
+        <p> </p>
+        <p> </p>
+        <table class="cfgtable">
+          <caption>SNMP v1/v2c Manager Configuration</caption>
+          <tr>
+            <td> Protocol Enable </td>
+            <td colspan="3"> SNMP V1/V2c <input type="CHECKBOX" name="SNMP_V1V2_ENABLE" value="SNMP_V1V2_ENABLE" <!--#SHOWSNMP CMD=SNMP_V1V2_ENABLE--> > </td>
+          </tr>
+          <tr>
+            <td> Local Community Name</td>
+            <td colspan="3"> <input type="TEXT" name="SNMP1_LCOM_NAME" id="SNMP1_LCOM_NAME" size="32" maxlength="31" value="<!--#SHOWSNMP CMD=SNMP1_LCOM_NAME-->"> </td>
+          </tr>
+        </table>
+        <p> </p>
+        <p> </p>
+        <table class="cfgtable">
+          <caption>SNMP v1/v2c Trap Receiver Configuration</caption>
+          <tr>
+            <td> Trap Receiver 1 </td>
+            <td colspan="3"> <input type="TEXT" name="SNMP_TR_V1V2_1_IP" id="SNMP_TR_V1V2_1_IP" size="32" maxlength="31" value="<!--#SHOWSNMP CMD=SNMP_TR_V1V2_1_IP-->"> </td>
+          </tr>
+          <tr>
+            <td> Community Name 1</td>
+            <td colspan="3"> <input type="TEXT" name="SNMP1_COM_NAME" id="SNMP1_COM_NAME" size="32" maxlength="31" value="<!--#SHOWSNMP CMD=SNMP1_COM_NAME-->"> </td>
+          </tr>
+          <tr>
+            <td> Trap Version </td>
+            <td> V1 <input type="radio" name="SNMP_V1V2_TR1_VERSION" value="SNMP_V1V2_TR1_VERSION1" <!--#SHOWSNMP CMD=SNMP_V1V2_TR1_VERSION1--> > </td>
+            <td> V2 <input type="radio" name="SNMP_V1V2_TR1_VERSION" value="SNMP_V1V2_TR1_VERSION2" <!--#SHOWSNMP CMD=SNMP_V1V2_TR1_VERSION2--> > </td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+          </tr>
+          <tr>
+            <td> Trap Receiver 2 </td>
+            <td colspan="3"> <input type="TEXT" name="SNMP_TR_V1V2_2_IP" id="SNMP_TR_V1V2_2_IP" size="32" maxlength="31" value="<!--#SHOWSNMP CMD=SNMP_TR_V1V2_2_IP-->"> </td>
+          </tr>
+          <tr>
+            <td> Community Name 2</td>
+            <td colspan="3"> <input type="TEXT" name="SNMP2_COM_NAME" id="SNMP2_COM_NAME" size="32" maxlength="31" value="<!--#SHOWSNMP CMD=SNMP2_COM_NAME-->"> </td>
+          </tr>
+          <tr>
+            <td> Trap Version </td>
+            <td> V1 <input type="radio" name="SNMP_V1V2_TR2_VERSION" value="SNMP_V1V2_TR2_VERSION1" <!--#SHOWSNMP CMD=SNMP_V1V2_TR2_VERSION1--> > </td>
+            <td> V2 <input type="radio" name="SNMP_V1V2_TR2_VERSION" value="SNMP_V1V2_TR2_VERSION2" <!--#SHOWSNMP CMD=SNMP_V1V2_TR2_VERSION2--> > </td>
+            <td>&nbsp;</td>
+          </tr>
+        </table>
+        <p class="conform"> <input type="RESET" value="UNDO"> <input type="SUBMIT" value="SUBMIT" name="SUBMIT"> </p>
+     </form>
+    </div>
+  </body>
+</html>
