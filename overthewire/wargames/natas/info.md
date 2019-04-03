@@ -186,5 +186,26 @@ reuse the script from the last exercise to brute force the contents of the passw
 
 And that'll be a totally blind SQL injection.  Well I think I can reuse 15 pretty much completely.
 
+```
+select sleep(3) from users where username = "natas18" and password LIKE BINARY "~~"
+```
+
+Took a little while to figure out where the sleep would go. A subquery seems like the standard place.
+God damn, it's amazing how much a person can do with a database connection. Amazing that by default 
+everything is completely open - with that query you could dump the schema and everything in the database,
+slowly, if you had enough time.
+
+### natas18: xvKIqDjy4OPv7wCRgDlmj0pFsCsDjhdP
+
+First step, clean up the PHP a little bit so you can see what's going on.
+So it looks like there's no way to enter anything that would make you an admin. But the PHPSESSID is 
+a number from 1-640, so I wrote a for loop to try them all and see if I could hijack an admin's session.
+Unfortunately the script didn't kick out the PHPSESSID that was correct, but that's ok.
+
+```
+$ for i in `seq 640`; do echo trying $i >&2; curl --basic -u natas$LEVEL:$PASS http://natas$LEVEL.natas.labs.overthewire.org/index.php?debug=yes --cookie PHPSESSID=$i; done > out
+```
+
+### natas19: 4IwIrekcuZlA9OsjOkoUtwU6lhokCPYs
 
 
