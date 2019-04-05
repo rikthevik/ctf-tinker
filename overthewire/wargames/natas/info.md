@@ -203,9 +203,24 @@ a number from 1-640, so I wrote a for loop to try them all and see if I could hi
 Unfortunately the script didn't kick out the PHPSESSID that was correct, but that's ok.
 
 ```
-$ for i in `seq 640`; do echo trying $i >&2; curl --basic -u natas$LEVEL:$PASS http://natas$LEVEL.natas.labs.overthewire.org/index.php?debug=yes --cookie PHPSESSID=$i; done > out
+$ for i in `seq 640`; do echo trying $i >&2; echo trying $i; curl --basic -u natas$LEVEL:$PASS http://natas$LEVEL.natas.labs.overthewire.org/index.php?debug=yes --cookie PHPSESSID=$i; done > out
 ```
 
 ### natas19: 4IwIrekcuZlA9OsjOkoUtwU6lhokCPYs
 
+Looks like the same kind of thing here.  But these PHPSESSIDs are weird.  It's like the session id 
+is a function of the username and password.  If you parse each two characters of PHPSESSID, you get
+a number-username string.  Tried enumerating the %d-natas20 session IDs, but nothing came up.  Most of
+them had a regular user assigned, which would be the case if other people were doing this and guessing
+natas20 like I did.  I tried enumerating %d-admin, and that kicked out the password.  I think I'm
+overtired though, as this took me way longer than it probably should have.
+
+Funky buffering issues with Python and the subprocess module.  When I want to pipe the whole program
+input out to `tee` the python program's input hangs for like 60s before being emitted at once.  And 
+that's with `python -u` for what I thought was unbuffered input.  Too many pipes?
+
+### natas20: eofm3Wsshxc5bwtVnEuGIlr7ivb9KABF
+
+This looks like reading through a bunch of PHP, which means I'm done for tonight.
+ 
 
