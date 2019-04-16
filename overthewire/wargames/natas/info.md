@@ -266,7 +266,7 @@ key into that session dictionary that'll get read out the next time the page get
 $ curl --basic -u natas20:eofm3Wsshxc5bwtVnEuGIlr7ivb9KABF natas20.natas.labs.over/index.php?debug=yes --cookie PHPSESSID=p1dvr1e7vhirhmfsiehp59tg67 -F $'name=abc123\nadmin 1' -v
 ```
 
-I should have spent more tiem auditing that session code, as it was the biggest piece
+I should have spent more time auditing that session code, as it was the biggest piece
 of information I had to go with.  I guess that reflects how much I like reading PHP.  On the 
 face of it, the code looked okay, but I should have dug in harder.
 
@@ -276,4 +276,6 @@ Looks like both sites share the same session backend. Filesystem probably. With 
 it looks like you can inject admin=1 by editing the form, and if you send the 2nd site's PHPSESSID
 to the site that'll display admin, it should pull it.  But it didn't.  Will try again tomorrow.
 Rather than these manual steps in the browser I'll set up a script.
+
+
 
